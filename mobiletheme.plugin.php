@@ -1,5 +1,5 @@
 <?php
-
+namespace Habari;
 class MobileTheme extends Plugin 
 {
 	private function is_mobile() {
@@ -76,7 +76,7 @@ class MobileTheme extends Plugin
 		}
 	
 		$ui = new FormUI( strtolower( get_class( $this ) ) );
-		$ui->append( 'select', 'mobiletheme', 'mobiletheme', _t('Select the theme to use for detected mobile browsers:') );
+		$ui->append(FormControlSelect::create('mobiletheme', 'mobiletheme')->label(_t('Select the theme to use for detected mobile browsers:') ));
 		$ui->mobiletheme->options = $themes;
 
 		$ui->append( 'submit', 'save', _t('Save') );
